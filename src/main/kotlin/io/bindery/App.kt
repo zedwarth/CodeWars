@@ -11,5 +11,8 @@ class App {
 }
 
 fun main(args: Array<String>) {
-    println(App().greeting)
+    val max = 100000L
+    val largePrimes = Prime.getSetOfPrimesInRange(1..max)
+
+    println(largePrimes)
 }
