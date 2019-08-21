@@ -1,39 +1,62 @@
 package io.bindery
 
-class PrimeSieve {
-    val setOfPrimes: MutableSet<Long> = setOf(2L).toMutableSet()
+import kotlin.math.sqrt
 
-    override fun toString(): String {
-        return setOfPrimes.toString()
-    }
+class Prime {
+    companion object {
+        private val setOfPrimes: MutableSet<Long> = mutableSetOf(2, 3L)
 
-    fun findPrimes(limit: Long) {
-        while (greatestKnownPrime() < limit) {
-            findNextPrime()
+        fun isPrime(number: Long): Boolean {
+            if (number < 2) return false
+
+            val limit: Long = sqrt(number.toDouble()).toLong()
+
+            findPrimesTo(limit)
+
+            val sieve = setOfPrimes.intersect(2..limit)
+
+            return sieveOutPrime(number, sieve)
         }
-    }
 
-    private fun findNextPrime() {
-        val nextInteger = setOfPrimes.max()!!.inc()
-        val nextPrime = findNextPrime(nextInteger)
-
-        setOfPrimes.add(nextPrime)
-    }
-
-    private fun findNextPrime(i: Long): Long {
-        return when {
-            isNumberPrime(i) -> i
-            else -> findNextPrime(i + 1)
+        fun getSetOfPrimesInRange(range: LongRange): Set<Long> {
+            return range.filter { isPrime(it) }.toSet()
         }
-    }
-    private fun greatestKnownPrime(): Long {
-        return setOfPrimes.max() ?: 2
-    }
 
-    private fun isNumberPrime(number: Long): Boolean {
-        for (prime in setOfPrimes) {
-            if (number % prime == 0L) return false
+        private fun sieveOutPrime(number: Long, sieve: Set<Long>): Boolean {
+            for (prime in sieve) {
+                if (number.rem(prime) == 0L) return false
+            }
+            return true
         }
-        return true
+
+        private fun findPrimesTo(limit: Long) {
+            if (limit < 2) return
+
+            while (limit !in rangeOfKnownPrimes()) {
+                findNextPrime()
+            }
+        }
+
+        private fun findNextPrime() {
+            val nextInteger = greatestKnownPrime() + 2
+            val nextPrime = findNextPrime(nextInteger)
+
+            setOfPrimes.add(nextPrime)
+        }
+
+        private fun findNextPrime(n: Long): Long {
+            return when {
+                sieveOutPrime(n, setOfPrimes) -> n
+                else -> findNextPrime(n + 1)
+            }
+        }
+
+        private fun greatestKnownPrime(): Long {
+            return setOfPrimes.last()
+        }
+
+        private fun rangeOfKnownPrimes(): LongRange {
+            return 2..greatestKnownPrime()
+        }
     }
 }
