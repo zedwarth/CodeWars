@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28c29816-f057-43b5-937c-08f6eae2a8a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/io/bindery/NumberIPAddress.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/io/bindery/NumberIPAddressTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/bindery/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/io/bindery/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/bindery/PrimeSieve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/io/bindery/PrimeSieve.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/io/bindery/backwardsPrimes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/io/bindery/backwardsPrimes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/io/bindery/PrimeSieveTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/io/bindery/PrimeSieveTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
